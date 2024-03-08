@@ -48,11 +48,8 @@ try {
             deleteDir()
             installTychoVersionsHotfix()
             releaseOpenHab2Component('openhab2-addons', true)
-            releaseOpenHab2Component('org.openhab.binding.zwave', true)
             releaseOpenHab2Component('org.openhab.binding.zigbee', true)
             releaseOpenHab2Component('org.openhab.ui.habmin', true)
-            releaseOpenHab2Component('org.openhab.ui.habpanel', true)
-            releaseOpenHab2Component('org.openhab.ui.habot', true)
         }    
     }
     // checkpoint "openHAB Add-Ons released"
