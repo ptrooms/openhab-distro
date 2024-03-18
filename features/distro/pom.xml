@@ -43,6 +43,16 @@
             <classifier>features</classifier>
             <type>xml</type>
         </dependency>
+
+<!-- trying to fix 17mar24 ava class. org/objectweb/asm/ClassVisitor: org.objectweb.asm.ClassVisitor -->
+<!-- 18mar24 not ndded as we compile, so this jar is also not needed
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>3.2</version>
+		</dependency>
+-->
+
     </dependencies>
 
     <build>

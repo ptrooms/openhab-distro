@@ -74,6 +74,16 @@
                             <artifactId>pax-web-patch</artifactId>
                             <version>1.0.0</version>
                         </dependency>  
+				<!-- 18mar24 ptro added to circumvent org/objectweb/asm/ClassVisitor: org.objectweb.asm.ClassVisitor -->
+			<!-- not needed: as we compile !!!
+						<dependency>
+							<groupId>asm</groupId>
+							<artifactId>asm</artifactId>
+							<version>3.3.1</version>
+						</dependency>
+			-->
+				<!-- 18mar24 eof -->
+
                     </dependencies>
                 </plugin>
             </plugins>

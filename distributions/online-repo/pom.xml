@@ -30,25 +30,42 @@
 
 	<build>
 		<plugins>
-   <plugin>
-	  <artifactId>maven-antrun-plugin</artifactId>
-	  <version>1.8</version>
-	  <executions>
-		 <execution>
-			<phase>generate-resources</phase>
-			<configuration>
-			   <tasks>
-				  <echo message="unzipping file"/>
-				  <unzip dest="target" src="../openhab-addons/target/openhab-addons-${project.version}.kar"/>
-				  <unzip dest="target" src="../openhab-addons-legacy/target/openhab-addons-legacy-${project.version}.kar"/>
-			   </tasks>
-			</configuration>
-			<goals>
-			   <goal>run</goal>
-			</goals>
-		 </execution>
-	  </executions>
-   </plugin>
+
+			<plugin>
+				  <artifactId>maven-antrun-plugin</artifactId>
+				  <version>1.8</version>
+				  <executions>
+					 <execution>
+						<phase>xgenerate-resources</phase>
+						<!-- read https://maven.apache.org/guides/mini/guide-generating-sources.html -->
+						<configuration>
+						   <!-- ptro 18mar24 deprecated <tasks> -->
+						   <target>
+							  <echo message="unzipping file"/>
+								<!-- https://ant.apache.org/manual/Tasks/unzip.html
+								<unzip
+									src 	archive file to expand.
+									dest 	directory where to store the expanded files.
+								-->
+						<!--
+							  <unzip dest="target" src="../openhab-addons/target/openhab-addons-${project.version}.kar"/>
+							  <unzip dest="target" src="../openhab-addons-legacy/target/openhab-addons-legacy-${project.version}.kar"/>
+							
+						-->
+							  <unzip dest="target" src="../openhab-addons/openhab-addons-${project.version}.kar"/>
+							  <unzip dest="target" src="../openhab-addons-legacy/target/openhab-addons-legacy-${project.version}.kar"/>
+
+
+						   </target>
+						   <!-- ptro 18mar24 pdeprecated </tasks> -->
+						</configuration>
+						<goals>
+						   <goal>run</goal>
+						</goals>
+					 </execution>
+				  </executions>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>

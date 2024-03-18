@@ -1,4 +1,6 @@
 **/target/
+target1/
+target2/
 src-gen/
 xtend-gen/
 bundles/io/org.openhab.io.multimedia.tts.marytts/lib/
@@ -23,3 +25,15 @@ maven-metadata-local.xml
 launch/home/logs
 launch/home/userdata
 Californium.properties
+
+# ignore vscode 08mar24
+*.zip
+.vscode/
+.classpath
+.settings
+*.code-workspace
+.project
+*.deleted
+*.org
+oh240_*.txt
+
