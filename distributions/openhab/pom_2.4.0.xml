@@ -51,8 +51,7 @@
             <type>xml</type>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-		<!-- this will override karaf viersion	org.apache.karaf.shell.ssh/4.2.1 -->
+        <dependency>	
             <groupId>org.openhab.distro</groupId>	
             <artifactId>overrides</artifactId>	
             <version>${project.version}</version>	
@@ -152,7 +151,6 @@
                         <feature>service</feature>
                         <feature>system</feature>
                         <feature>openhab-runtime-base</feature>
-                        <feature>openhab-ui-dashboard</feature>
                     </bootFeatures>
                     <archiveZip>false</archiveZip>
                     <archiveTarGz>false</archiveTarGz>

@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.openhab.distro</groupId>
         <artifactId>pom-distributions</artifactId>
-        <version>2.4.0</version>
+        <version>2.5.13-SNAPSHOT</version>
     </parent>
 
     <artifactId>openhab</artifactId>
@@ -19,6 +19,13 @@
             <artifactId>framework</artifactId>
             <version>${karaf.version}</version>
             <type>kar</type>
+            <exclusions>
+                <exclusion>
+                    <!-- This should have been an optional dependency and will be fixed in Karaf 4.2.8 (KARAF-6462). -->
+                    <groupId>org.knopflerfish.kf6</groupId>
+                    <artifactId>log-API</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.karaf.features</groupId>
@@ -51,15 +58,6 @@
             <type>xml</type>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-		<!-- this will override karaf viersion	org.apache.karaf.shell.ssh/4.2.1 -->
-            <groupId>org.openhab.distro</groupId>	
-            <artifactId>overrides</artifactId>	
-            <version>${project.version}</version>	
-            <classifier>features</classifier>	
-            <type>xml</type>	
-            <scope>runtime</scope>	
-        </dependency>
     </dependencies>
 
     <build>
@@ -75,16 +73,6 @@
                             <artifactId>pax-web-patch</artifactId>
                             <version>1.0.0</version>
                         </dependency>  
-				<!-- 18mar24 ptro added to circumvent org/objectweb/asm/ClassVisitor: org.objectweb.asm.ClassVisitor -->
-			<!-- not needed: as we compile !!!
-						<dependency>
-							<groupId>asm</groupId>
-							<artifactId>asm</artifactId>
-							<version>3.3.1</version>
-						</dependency>
-			-->
-				<!-- 18mar24 eof -->
-
                     </dependencies>
                 </plugin>
             </plugins>
@@ -131,7 +119,6 @@
                     <installedFeatures>
                         <feature>wrapper</feature>
                         <feature>wrap</feature>
-                        <feature>openhab-overrides</feature>
                     </installedFeatures>
                     <startupFeatures>
                         <feature>eventadmin</feature>
@@ -176,6 +163,27 @@
                     </arguments>
                     <includePluginDependencies>True</includePluginDependencies>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                <execution>
+                    <phase>prepare-package</phase>
+                    <configuration>
+                    <tasks>
+                        <replace dir="target/assembly/system/org/openhab/distro/openhab-addons/${project.version}" token="/${project.version}" value="/[2.5.0,2.6)">                                 
+                            <include name="*.xml"/>
+                        </replace>
+                        <replace dir="target/assembly/system/org/openhab/distro/openhab-addons/${project.version}" token="/${oh1.version}" value="/[1.14.0,1.15)">                                 
+                            <include name="*.xml"/>
+                        </replace>
+                    </tasks>
+                    </configuration>
+                    <goals>
+                    <goal>run</goal>
+                    </goals>
+                </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
