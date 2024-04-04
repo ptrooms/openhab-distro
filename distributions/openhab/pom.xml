@@ -158,6 +158,8 @@
                     <archiveTarGz>false</archiveTarGz>
                 </configuration>
             </plugin>
+			<!-- read: https://www.mojohaus.org/exec-maven-plugin/usage.html -->
+			<!-- https://www.mojohaus.org/exec-maven-plugin/java-mojo.html#mainClass -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -176,6 +178,7 @@
                     </arguments>
                     <includePluginDependencies>True</includePluginDependencies>
                 </configuration>
+
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
