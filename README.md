@@ -6,10 +6,12 @@ It is designed to be absolutely vendor-neutral as well as hardware/protocol-agno
 
 For further Information please refer to our homepage [www.openhab.org](http://www.openhab.org). 
 
+Note: Openhab R2.4.0+ based on EclipseSmartHome is archived and no longer supported.
+Teh information here is as-is used to reconstruct things.
+
 ## openHAB 2 Distribution
 
 openHAB 2 is the successor of [openHAB 1](https://github.com/openhab/openhab/wiki). It is an open-source solution based on the [Eclipse SmartHome](https://www.eclipse.org/smarthome/) framework. It is fully written in Java and uses [Apache Karaf](http://karaf.apache.org/) together with [Eclipse Equinox](https://www.eclipse.org/equinox/) as an OSGi runtime and bundles this with [Jetty](https://www.eclipse.org/jetty/) as an HTTP server.
-
 For the latest snapshot builds, please see to our [jenkins job](https://ci.openhab.org/job/openHAB-Distribution/).
 
 ## Getting Started
@@ -37,7 +39,7 @@ In case of problems or questions, please join our vibrant [openHAB community](ht
 6) https://github.com/ptrooms/org.openhab.ui.habpanel/tree/myR240 = ~/code-openhab/git-habpanel_R240: $ mvn -o clean install -DskipTests=true -Dcheckstyle.skip
 7) https://github.com/ptrooms/openhab-distro/releases/tag/2.4.0 = ~/code-openhab/git-openhab-distro $ mvn -o clean install -DskipTests=true -Dcheckstyle.skip
 
-tldr; the Distro still does not install  and as of date 04apr24 03u30 CET we have:
+tldr; the Distro still does not install and as of date 04apr24 03u30 CET we have a new problem:
 * [ERROR] Failed to execute goal org.apache.maven.plugins:maven-assembly-plugin:2.5.5:single (archive) on project openhab: Execution archive of goal org.apache.maven.plugins:maven-assembly-plugin:2.5.5:single failed: A required class was missing while executing org.apache.maven.plugins:maven-assembly-plugin:2.5.5:single: Lorg/apache/maven/shared/filtering/MavenReaderFilter;
 -- see for details file "failed_03apr24_02u11_required-class-was-missing.txt"
 
@@ -54,7 +56,7 @@ As date, we were not yet able to produce a full function kar file that includes 
 TBD: is adapting distro to include the result of at habpanel.
 
 ## Acknowledgements
-
+The openHAB community and all other who helped me to get things running !!!!
 <table>
 <tr><td width=30%><img src="https://www.digitalocean.com/assets/media/logos-badges/png/DO_Powered_by_Badge_blue-fe4c6688.png"></td>
 <td><a href="https://www.digitalocean.com">DigitalOcean</a> sponsors our <a href="https://community.openhab.org/">community forum</a> hosting.</td>
@@ -65,5 +67,4 @@ TBD: is adapting distro to include the result of at habpanel.
 <tr><td width=30%><img src="http://www.ej-technologies.com/images/product_banners/jprofiler_large.png"/></td>
 <td><a href="http://www.ej-technologies.com/">EJ Technologies</a> is providing us open source licenses for <a href="http://www.ej-technologies.com/products/jprofiler/overview.html">JProfiler</a> to make openHAB even more awesome.</td>
 </tr>
-
 </table>
