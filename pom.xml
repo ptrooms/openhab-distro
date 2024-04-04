@@ -91,6 +91,14 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
+<!--
+	The Assembly Plugin for Maven enables developers to combine project output 
+	into a single distributable archive that also contains dependencies, 
+	modules, site documentation, and other files.
+	Your project can easily build distribution 
+	"assemblies" using one of the prefabricated assembly descriptors.
+ -->
+                    <!-- <version>2.5.5</version> -->
                     <version>2.5.5</version>
                 </plugin>
 

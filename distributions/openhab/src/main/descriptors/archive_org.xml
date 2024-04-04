@@ -2,12 +2,8 @@
 <assembly>
     <id>archive</id>
     <formats>
-		<!-- 05apr24 zip successfull with maven-assembly-plugin as of 2.4.1 -->
         <format>zip</format>
-		<!-- 05apr24 tar.gz require an archive that support this extention -->
-		<!-- 05apr24 Unable to obtain archiver for extension 'tar.gz', for assembly: 'archive': No such archiver: 'tar' -->
-        <!-- <format>tar.gz</format> -->
-
+        <format>tar.gz</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
 
